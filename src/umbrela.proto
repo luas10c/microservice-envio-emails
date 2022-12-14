@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+message SendMailRequest {
+  string email = 1;
+  string body = 2;
+}
+
+message Queue {
+  string name = 1;
+  string token = 2;
+  string keyPrefix = 3;
+}
+
+message SendMailResponse {
+  string id = 1;
+  string name = 2;
+  Queue queue = 3;
+}
+
+service UmbrellaService {
+  rpc sendMail(SendMailRequest) returns (SendMailResponse);
+}
